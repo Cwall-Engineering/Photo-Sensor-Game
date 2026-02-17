@@ -1,0 +1,60 @@
+int photocellPin = 0;     // the cell and 10K pulldown are connected to a0
+int photocellReading;     // the analog reading from the sensor divider
+int LEDpin = 11;          // connect Red LED to pin 11 (PWM pin)
+int LEDbrightness;        // 
+void setup(void) {
+  // We'll send debugging information via the Serial monitor
+  Serial.begin(9600);   
+}
+ 
+void loop(void) {
+  photocellReading = analogRead(photocellPin);  
+  if (photocellReading < 300){
+    analogWrite(LEDpin, 100);
+    Serial.print("Try to make it brighter\n");
+    delay(500);
+    analogWrite(LEDpin, 1);
+    delay(500);
+  }
+  if (photocellReading > 300 && photocellReading < 400){
+    analogWrite(LEDpin, 150);
+    Serial.print("Try to make it a little brighter\n");
+    delay(300);
+    analogWrite(LEDpin, 1);
+    delay(300);
+  }
+  if (photocellReading > 400 && photocellReading < 450){
+    analogWrite(LEDpin, 180);
+    Serial.print("Try to make it slightly brighter\n");
+    delay(100);
+    analogWrite(LEDpin, 1);
+    delay(100);
+  }
+  if (photocellReading > 450 && photocellReading < 550){
+    analogWrite(LEDpin, 100);
+    Serial.print("You Win");
+    delay(500);
+    while(true);
+  }
+  if (photocellReading > 550 && photocellReading < 600){
+    analogWrite(LEDpin, 100);
+    Serial.print("Try to make it slightly dimmer\n");
+    delay(100);
+    analogWrite(LEDpin, 1);
+    delay(100);
+  }
+  if (photocellReading > 600 && photocellReading < 700){
+    analogWrite(LEDpin, 100);
+    Serial.print("Try to make it a little dimmer\n");
+    delay(300);
+    analogWrite(LEDpin, 1);
+    delay(300);
+  }
+  if (photocellReading > 700){
+    analogWrite(LEDpin, 100);
+    Serial.print("Try to make it dimmer\n");
+    delay(500);
+    analogWrite(LEDpin, 1);
+    delay(500);
+  }
+}
