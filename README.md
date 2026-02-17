@@ -1,1 +1,1 @@
-This is a game that gives you the goal of reaching a target brightness. The closer you get to this goal number the faster the LED blinks. Once you reach the goal number the Game ends, stating "You Win!". 
+This is a game that gives you the goal of reaching a target brightness on the light sensor. The closer you get to this goal number the faster the LED blinks. Once you reach the goal number the Game ends, stating "You Win!". 
